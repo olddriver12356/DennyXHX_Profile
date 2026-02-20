@@ -1,6 +1,36 @@
 import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
+import ProjectVisual from "../../components/ProjectVisuals";
+
+{PROJECTS.map((p) => (
+  <Link key={p.slug} href={`/projects/${p.slug}`} className="group">
+    <div className="transition hover:-translate-y-0.5">
+      <ProjectVisual
+        title={p.title}
+        tagline={p.tagline}
+        thumbnail={p.thumbnail}
+        icon={p.visual?.icon ?? "code"}
+        gradientFrom={p.visual?.gradientFrom}
+        gradientTo={p.visual?.gradientTo}
+        kpis={p.visual?.kpis ?? []}
+        compact
+      />
+
+      {/* Minimal “below the fold” info */}
+      <div className="mt-4 rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_58%,transparent)] p-5 backdrop-blur">
+        <div className="flex flex-wrap gap-2">
+          {p.stack.slice(0, 5).map((t) => (
+            <span key={t} className="chip">{t}</span>
+          ))}
+        </div>
+        <div className="mt-4 inline-flex items-center gap-2 text-sm text-[color:var(--muted)] group-hover:text-[color:var(--fg)]">
+          View details <span aria-hidden="true">→</span>
+        </div>
+      </div>
+    </div>
+  </Link>
+))}
 
 export default function ProjectsPage() {
   return (
@@ -62,3 +92,32 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
+{PROJECTS.map((p) => (
+    <Link key={p.slug} href={`/projects/${p.slug}`} className="group">
+      <div className="transition hover:-translate-y-0.5">
+        <ProjectVisual
+          title={p.title}
+          tagline={p.tagline}
+          thumbnail={p.thumbnail}
+          icon={p.visual?.icon ?? "code"}
+          gradientFrom={p.visual?.gradientFrom}
+          gradientTo={p.visual?.gradientTo}
+          kpis={p.visual?.kpis ?? []}
+          compact
+        />
+  
+        {/* Minimal “below the fold” info */}
+        <div className="mt-4 rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_58%,transparent)] p-5 backdrop-blur">
+          <div className="flex flex-wrap gap-2">
+            {p.stack.slice(0, 5).map((t) => (
+              <span key={t} className="chip">{t}</span>
+            ))}
+          </div>
+          <div className="mt-4 inline-flex items-center gap-2 text-sm text-[color:var(--muted)] group-hover:text-[color:var(--fg)]">
+            View details <span aria-hidden="true">→</span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  ))}

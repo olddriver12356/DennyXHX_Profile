@@ -13,6 +13,12 @@ export type Project = {
     impact: string[];
     architecture?: string[];
     links?: { github?: string; live?: string };
+    visual?: {
+        icon: "database" | "sparkles" | "brain" | "code";
+        gradientFrom?: string; // css color, e.g. "var(--accent)"
+        gradientTo?: string;   // css color, e.g. "var(--accent-2)"
+        kpis?: Array<{ label: string; value: string }>;
+      }
   };
   
   export const PROJECTS: Project[] = [

@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getProject } from "@/lib/projects";
 import { notFound } from "next/navigation";
+import ProjectVisual from "../../../components/ProjectVisuals";
 
 export default async function ProjectDetailPage({
   params,
@@ -19,38 +19,45 @@ export default async function ProjectDetailPage({
         <Link className="btn" href="/projects">
           ← Back
         </Link>
+
         <div className="flex gap-2">
           {project.links?.github && (
-            <Link className="btn" href={project.links.github} target="_blank">
+            <Link className="btn" href={project.links.github} target="_blank" rel="noreferrer">
               GitHub
             </Link>
           )}
           {project.links?.live && project.links.live.trim() !== "" && (
-            <Link className="btn btn-primary" href={project.links.live} target="_blank">
+            <Link className="btn btn-primary" href={project.links.live} target="_blank" rel="noreferrer">
               Live
             </Link>
           )}
         </div>
       </header>
 
-      <section className="surface rounded-[var(--radius-xl)] p-6">
-        <div className="flex flex-col gap-6 md:flex-row md:items-start">
-          <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface-2)_65%,transparent)] md:h-44 md:w-64">
-            <Image src={project.thumbnail} alt={project.title} fill className="object-cover" />
+      {/* Visual hero */}
+      <section className="space-y-4">
+        <ProjectVisual
+          title={project.title}
+          tagline={project.tagline}
+          thumbnail={project.thumbnail}
+          icon={project.visual?.icon ?? "code"}
+          gradientFrom={project.visual?.gradientFrom}
+          gradientTo={project.visual?.gradientTo}
+          kpis={project.visual?.kpis ?? []}
+        />
+
+        {/* Stack chips */}
+        <div className="surface rounded-[var(--radius-xl)] p-6">
+          <div className="flex flex-wrap gap-2">
+            {(project.stack ?? []).map((t) => (
+              <span key={t} className="chip">
+                {t}
+              </span>
+            ))}
           </div>
 
-          <div className="min-w-0">
-            <div className="text-xs text-[color:var(--muted)]">
-              {project.year} {project.role ? `• ${project.role}` : ""}
-            </div>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight">{project.title}</h1>
-            <p className="mt-3 text-sm text-[color:var(--muted)]">{project.tagline}</p>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              {(project.stack ?? []).map((t) => (
-                <span key={t} className="chip">{t}</span>
-              ))}
-            </div>
+          <div className="mt-3 text-xs text-[color:var(--muted)]">
+            {project.year ? project.year : ""} {project.role ? `• ${project.role}` : ""}
           </div>
         </div>
       </section>
