@@ -30,6 +30,7 @@ const PROFILE = {
 // Put your photo in: public/profile.jpg (or change this path)
 const PHOTO = {
   src: "/profile.jpg",
+  alt: "Professional headshot of Denny Xie",
 };
 
 const PROJECTS: Project[] = [
