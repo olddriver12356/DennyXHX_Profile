@@ -30,7 +30,7 @@ export type Project = {
       tagline: "Transforms messy academic datasets into structured, queryable data.",
       year: "2025",
       role: "Full Stack / Backend",
-      thumbnail: "/file.svg",
+      thumbnail: "/course-data.svg",
       metrics: ["End-to-end pipeline", "Automated tests", "Security validation"],
       stack: ["TypeScript", "Node.js", "Next.js", "Testing", "REST API"],
       overview:
@@ -69,7 +69,7 @@ export type Project = {
       tagline: "Relational database system for operational workflows and analytics queries.",
       year: "2025",
       role: "Database / Backend",
-      thumbnail: "/globe.svg",
+      thumbnail: "/restaurant-db.svg",
       metrics: ["15+ entities", "1,000+ records", "~30% faster queries"],
       stack: ["SQL", "Oracle DB", "Relational Modeling"],
       overview:
@@ -104,7 +104,7 @@ export type Project = {
       tagline: "Reusable ML pipelines with consistent evaluation and model selection.",
       year: "2026",
       role: "ML / Data",
-      thumbnail: "/window.svg",
+      thumbnail: "/ml-workflow.svg",
       metrics: ["Reusable pipeline", "CV + tuning", "Consistent metrics"],
       stack: ["Python", "Pandas", "Scikit-Learn"],
       overview:
