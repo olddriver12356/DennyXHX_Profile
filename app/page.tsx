@@ -16,53 +16,56 @@ const PROFILE = {
   name: "Denny Xie",
   headline: "Business + Tech hybrid building full-stack products with measurable impact.",
   subheadline:
-    "I like turning ambiguous business problems into shipped software — clean UX, reliable APIs, and data-driven decisions.",
+    "I build data-driven systems that turn complex business requirements into reliable backend architectures and production-ready applications.",
   links: {
     email: "honghongxia.xie@gmail.com",
     github: "https://github.com/olddriver12356",
-    linkedin: "https://www.linkedin.com/in/https://www.linkedin.com/in/denny-xie-493347262/",
+    linkedin: "https://www.linkedin.com/in/denny-xie-493347262/",
     resume: "/resume.pdf",
   },
 };
 
 const PROJECTS: Project[] = [
   {
-    title: "Project 1 Title (from your resume)",
-    tagline: "One sentence: what it is + who it helps.",
+    title: "UBC Course Database Management Project",
+    tagline: "Built a modular backend system to transform heterogeneous academic datasets into structured, queryable formats.",
     impact: [
-      "Impact bullet 1 (use numbers if possible).",
-      "Impact bullet 2 (what hard problem you solved).",
-      "Impact bullet 3 (scale, reliability, performance, UX, etc.).",
+      "Built a modular backend system to validate, transform, and structure heterogeneous datasets into queryable formats.",
+      "Designed a data ingestion and validation pipeline for unstructured course datasets.",
+      "Applied production-style security modeling and input validation aligned with SaaS best practices.",
+      "Documented system architecture and edge cases for team maintainability.",
+      "Collaborated with another teamate within a Agile-based group, iterating on different program feature, user requirements."
     ],
-    tech: ["Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+    tech: ["Next.js", "TypeScript", "Node.js", "Testing", "CI/CD", "REST API"],
     links: {
       github: "https://github.com/olddriver12356/REPO_LINK_1",
       live: "https://YOUR_DEMO_LINK_1",
     },
   },
   {
-    title: "Project 2 Title (from your resume)",
-    tagline: "One sentence: what it is + why it matters.",
+    title: "Restaurant Supply Chain & Review System",
+    tagline: "Designed and implemented a full relational database system to manage restaurant supply chain and review workflows.",
     impact: [
-      "Impact bullet 1.",
-      "Impact bullet 2.",
-      "Impact bullet 3.",
+      "Architected a 15+ entity normalized relational schema with clear constraints and relationships.",
+      "Loaded and validated 1,000+ realistic records and optimized query performance via indexing and schema refinement.",
+      "Reduced average query latency by ~30% through structural improvements.",
+      "Iterated design across multiple Agile milestones (ERD → Relational Schema → SQL Implementation)"
     ],
-    tech: ["React", "Express", "SQL", "Docker"],
+    tech: ["JavaScript", "SQL", "Oracle DB", "Relational Modeling"],
     links: {
       github: "https://github.com/olddriver12356/REPO_LINK_2",
       live: "https://YOUR_DEMO_LINK_2",
     },
   },
   {
-    title: "Project 3 Title (from your resume)",
-    tagline: "One sentence: what it is + the outcome.",
+    title: "Machine Learning Workflow Framework",
+    tagline: "Built modular machine learning pipelines for structured datasets with systematic validation and model selection.",
     impact: [
-      "Impact bullet 1.",
-      "Impact bullet 2.",
-      "Impact bullet 3.",
+      "Developed reusable ML workflows integrating preprocessing, feature engineering, training, and evaluation.",
+      "Implemented classification and regression models across real-world datasets.",
+      "Designed cross-validation and structured hyperparameter tuning to ensure reliable model selection.",
     ],
-    tech: ["Python", "Pandas", "FastAPI", "AWS"],
+    tech: ["Python", "Pandas", "Scikit-Learn", "Model Evaluation"],
     links: {
       github: "https://github.com/olddriver12356/REPO_LINK_3",
       live: "https://YOUR_DEMO_LINK_3",
@@ -205,21 +208,21 @@ export default function HomePage() {
           <h2 className="text-xl font-semibold">How I work</h2>
           <div className="mt-4 grid gap-6 md:grid-cols-3">
             <div>
-              <div className="text-sm font-semibold">Business-first</div>
+              <div className="text-sm font-semibold">Business-Driven Engineering</div>
               <p className="mt-2 text-sm text-neutral-300">
-                I start with the user + business goal, define success metrics, and scope an MVP that ships.
+               I translate business constraints and strategic goals into technical architectures with measurable outcomes.
               </p>
             </div>
             <div>
-              <div className="text-sm font-semibold">Engineering depth</div>
+              <div className="text-sm font-semibold">Backend & Data Focused</div>
               <p className="mt-2 text-sm text-neutral-300">
-                I care about API contracts, data models, edge cases, and maintainability — not just demos.
+               I care about schema design, API contracts, validation pipelines, and performance optimization — not just interfaces.
               </p>
             </div>
             <div>
-              <div className="text-sm font-semibold">Iterate fast</div>
+              <div className="text-sm font-semibold">Iterative & Analytical</div>
               <p className="mt-2 text-sm text-neutral-300">
-                Ship early, measure, refine. I like tight feedback loops and clean, incremental improvements.
+               From ROI modeling in investment analysis to hyperparameter tuning in ML, I build systems with measurement in mind.
               </p>
             </div>
           </div>
