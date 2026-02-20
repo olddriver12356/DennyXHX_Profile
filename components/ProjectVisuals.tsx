@@ -118,5 +118,5 @@ export default function ProjectVisual({
       {/* Bottom subtle divider */}
       <div className="h-px w-full bg-[color:color-mix(in_oklab,var(--accent)_28%,transparent)] opacity-60" />
     </div>
-    );
-    }
+  );
+}

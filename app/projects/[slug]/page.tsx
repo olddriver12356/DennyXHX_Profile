@@ -1,7 +1,13 @@
 import Link from "next/link";
-import { getProject } from "@/lib/projects";
-import { notFound } from "next/navigation";
-import ProjectVisual from "../../../components/ProjectVisuals";
+import { PROJECTS, getProject, resolveProjectSlug } from "@/lib/projects";
+import { notFound, redirect } from "next/navigation";
+import ProjectVisual from "@/components/ProjectVisuals";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return PROJECTS.map((p) => ({ slug: p.slug }));
+}
 
 export default async function ProjectDetailPage({
   params,
@@ -10,7 +16,10 @@ export default async function ProjectDetailPage({
 }) {
   const { slug } = await params;
 
-  const project = getProject(slug);
+  const canonical = resolveProjectSlug(slug);
+  if (canonical !== slug) redirect(`/projects/${canonical}`);
+
+  const project = getProject(canonical);
   if (!project) return notFound();
 
   return (

@@ -1,5 +1,6 @@
 export type Project = {
     slug: string;
+    aliases?: string[];
     title: string;
     tagline: string;
     year?: string;
@@ -23,12 +24,13 @@ export type Project = {
   
   export const PROJECTS: Project[] = [
     {
-      slug: "Course Database Management Query Engine",
-      title: "Course Data Query Engine",
+      slug: "course-database-management-query-engine",
+      aliases: ["Course Database Management Query Engine", "course-data-query-engine"],
+      title: "Course Database Management Query Engine",
       tagline: "Transforms messy academic datasets into structured, queryable data.",
       year: "2025",
       role: "Full Stack / Backend",
-      thumbnail: "/course-data.svg",
+      thumbnail: "/file.svg",
       metrics: ["End-to-end pipeline", "Automated tests", "Security validation"],
       stack: ["TypeScript", "Node.js", "Next.js", "Testing", "REST API"],
       overview:
@@ -50,15 +52,24 @@ export type Project = {
         "Clear contracts between modules for testability",
       ],
       links: { github: "https://github.com/olddriver12356", live: "" },
+      visual: {
+        icon: "database",
+        kpis: [
+          { label: "Pipeline", value: "Ingest → Query" },
+          { label: "Testing", value: "Automated" },
+          { label: "Focus", value: "Validation" },
+        ],
+      },
     },
   
     {
-      slug: "Restaurant Supply Chain & Review Management System",
+      slug: "restaurant-supply-chain-review-system",
+      aliases: ["Restaurant Supply Chain & Review Management System", "restaurant-db-system"],
       title: "Restaurant Supply Chain & Review System",
       tagline: "Relational database system for operational workflows and analytics queries.",
       year: "2025",
       role: "Database / Backend",
-      thumbnail: "/restaurant-db.svg",
+      thumbnail: "/globe.svg",
       metrics: ["15+ entities", "1,000+ records", "~30% faster queries"],
       stack: ["SQL", "Oracle DB", "Relational Modeling"],
       overview:
@@ -76,15 +87,24 @@ export type Project = {
         "Reduced query latency through structural improvements and indexing.",
       ],
       links: { github: "https://github.com/olddriver12356", live: "" },
+      visual: {
+        icon: "sparkles",
+        kpis: [
+          { label: "Schema", value: "15+ entities" },
+          { label: "Data", value: "1,000+ rows" },
+          { label: "Speed", value: "~30% faster" },
+        ],
+      },
     },
   
     {
-      slug: "Machine Learning & Predictive Modeling",
-      title: "ML Workflow Framework",
+      slug: "machine-learning-predictive-modeling",
+      aliases: ["Machine Learning & Predictive Modeling", "ml-workflow-framework"],
+      title: "Machine Learning & Predictive Modeling",
       tagline: "Reusable ML pipelines with consistent evaluation and model selection.",
       year: "2026",
       role: "ML / Data",
-      thumbnail: "/ml-workflow.svg",
+      thumbnail: "/window.svg",
       metrics: ["Reusable pipeline", "CV + tuning", "Consistent metrics"],
       stack: ["Python", "Pandas", "Scikit-Learn"],
       overview:
@@ -102,9 +122,23 @@ export type Project = {
         "Reduced selection bias via cross-validation and structured tuning.",
       ],
       links: { github: "https://github.com/olddriver12356", live: "" },
+      visual: {
+        icon: "brain",
+        kpis: [
+          { label: "CV", value: "Cross-validated" },
+          { label: "Tuning", value: "Structured" },
+          { label: "Output", value: "Comparable" },
+        ],
+      },
     },
   ];
   
+  export function resolveProjectSlug(input: string) {
+    const hit = PROJECTS.find((p) => p.slug === input || (p.aliases ?? []).includes(input));
+    return hit?.slug ?? input;
+  }
+
   export function getProject(slug: string) {
-    return PROJECTS.find((p) => p.slug === slug);
+    const canonical = resolveProjectSlug(slug);
+    return PROJECTS.find((p) => p.slug === canonical);
   }
