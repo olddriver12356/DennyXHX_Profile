@@ -1,6 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
+import { EDUCATION } from "@/lib/education";
+import { WORK } from "@/lib/work";
+import { VOLUNTEER } from "@/lib/volunteer";
+import { EntryCard } from "@/components/EntryCard";
 
 const PROFILE = {
   name: "Denny Xie",
@@ -125,6 +129,9 @@ function PhotoCard() {
 
 export default function HomePage() {
   const featured = PROJECTS.slice(0, 3).map((p) => p.slug);
+  const featuredEdu = EDUCATION.slice(0, 2);
+  const featuredWork = WORK.slice(0, 1);
+  const featuredVolunteer = VOLUNTEER.slice(0, 1);
 
   return (
     <div className="space-y-14">
@@ -174,6 +181,72 @@ export default function HomePage() {
 
       <div className="divider" />
 
+      {/* Education */}
+      <section id="education" className="space-y-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              A quick summary — click in for details.
+            </p>
+          </div>
+          <Link className="btn w-fit" href="/education">
+            View all →
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredEdu.map((e) => (
+            <EntryCard
+              key={e.slug}
+              href={`/education/${e.slug}`}
+              eyebrow={e.school}
+              title={e.program}
+              meta={[e.location, e.start && e.end ? `${e.start}–${e.end}` : e.start || e.end]
+                .filter(Boolean)
+                .join(" • ")}
+              summary={e.summary}
+              chips={(e.coursework ?? []).slice(0, 6)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* Work */}
+      <section id="work" className="space-y-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">Work experience</h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              Roles and outcomes — click in for full scope.
+            </p>
+          </div>
+          <Link className="btn w-fit" href="/work">
+            View all →
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredWork.map((w) => (
+            <EntryCard
+              key={w.slug}
+              href={`/work/${w.slug}`}
+              eyebrow={w.company}
+              title={w.title}
+              meta={[w.location, w.start && w.end ? `${w.start}–${w.end}` : w.start || w.end]
+                .filter(Boolean)
+                .join(" • ")}
+              summary={w.summary}
+              chips={(w.tech ?? []).slice(0, 6)}
+            />
+          ))}
+        </div>
+      </section>
+
+      <div className="divider" />
+
       {/* Featured projects */}
       <section id="projects">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -191,6 +264,39 @@ export default function HomePage() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {featured.map((slug) => (
             <ProjectCard key={slug} slug={slug} />
+          ))}
+        </div>
+      </section>
+
+      <div className="divider" />
+
+      {/* Volunteer */}
+      <section id="volunteer" className="space-y-6">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-semibold tracking-tight">Volunteer experience</h2>
+            <p className="mt-2 text-sm text-[color:var(--muted)]">
+              Community work and leadership outside of coursework.
+            </p>
+          </div>
+          <Link className="btn w-fit" href="/volunteer">
+            View all →
+          </Link>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {featuredVolunteer.map((v) => (
+            <EntryCard
+              key={v.slug}
+              href={`/volunteer/${v.slug}`}
+              eyebrow={v.org}
+              title={v.role}
+              meta={[v.location, v.start && v.end ? `${v.start}–${v.end}` : v.start || v.end]
+                .filter(Boolean)
+                .join(" • ")}
+              summary={v.summary}
+              chips={(v.skills ?? []).slice(0, 6)}
+            />
           ))}
         </div>
       </section>

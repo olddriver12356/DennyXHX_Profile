@@ -23,6 +23,9 @@ const PROFILE = {
 const NAV: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
+  { label: "Education", href: "/education" },
+  { label: "Work", href: "/work" },
+  { label: "Volunteer", href: "/volunteer" },
   { label: "Resume", href: "/resume" },
   { label: "GitHub", href: PROFILE.links.github, external: true },
   { label: "LinkedIn", href: PROFILE.links.linkedin, external: true },
