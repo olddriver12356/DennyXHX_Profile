@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@property --accent-h {
+    syntax: "<number>";
+    inherits: true;
+    initial-value: 262;
+  }
+
 :root {
   /* Theme tokens (default = dark, because you started with dark UI) */
   --bg: #050816;
@@ -20,7 +26,13 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
   --content-max: 72rem;
+  animation: hueShift 18s linear infinite;
 }
+@keyframes hueShift {
+    0% { --accent-h: 262; }
+    50% { --accent-h: 330; }
+    100% { --accent-h: 262; }
+  }
 
 /* If user hasn’t explicitly selected a theme, follow OS preference */
 @media (prefers-color-scheme: light) {
