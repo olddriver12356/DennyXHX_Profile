@@ -17,7 +17,7 @@
   --shadow: rgba(2, 6, 23, 0.55);
 
   /* Dynamic accent: hue can be changed at runtime */
-  --accent-h: 262;
+  --accent-h: 0;
   --accent: hsl(var(--accent-h) 92% 62%);
   --accent-2: hsl(calc(var(--accent-h) + 38) 92% 60%);
   --accent-3: hsl(calc(var(--accent-h) + 116) 82% 56%);
@@ -26,12 +26,24 @@
   --radius-lg: 16px;
   --radius-xl: 20px;
   --content-max: 72rem;
-  animation: hueShift 18s linear infinite;
+  animation: hueShift 10s ease-in-out infinite alternate;
 }
 @keyframes hueShift {
-    0% { --accent-h: 262; }
-    50% { --accent-h: 330; }
-    100% { --accent-h: 262; }
+    0% {
+      --accent-h: 0;
+    }
+    25% {
+      --accent-h: 90;
+    }
+    50% {
+      --accent-h: 180;
+    }
+    75% {
+      --accent-h: 270;
+    }
+    100% {
+      --accent-h: 360;
+    }
   }
 
 /* If user hasn’t explicitly selected a theme, follow OS preference */
@@ -100,8 +112,8 @@ body::after {
   position: fixed;
   z-index: -2;
   border-radius: 9999px;
-  filter: blur(68px);
-  opacity: 0.34;
+  filter: blur(90px);
+  opacity: 0.5;
 }
 
 body::before {

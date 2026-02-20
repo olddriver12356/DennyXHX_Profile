@@ -3,23 +3,16 @@ export type Project = {
     title: string;
     tagline: string;
     year?: string;
-    thumbnail: string; // put images in /public/projects/
     role?: string;
+    thumbnail: string; // must exist in /public
+    metrics?: string[];
     stack: string[];
-    highlights: string[]; // short bullets for home/projects list
-    metrics?: string[];   // quick wins (latency, scale, etc.)
-    links?: {
-      github?: string;
-      live?: string;
-    };
-    // long form for detail page
     overview: string;
     problem: string;
     solution: string[];
     impact: string[];
     architecture?: string[];
-    challenges?: string[];
-    learnings?: string[];
+    links?: { github?: string; live?: string };
   };
   
   export const PROJECTS: Project[] = [
@@ -28,44 +21,29 @@ export type Project = {
       title: "Course Data Query Engine",
       tagline: "Transforms messy academic datasets into structured, queryable data.",
       year: "2025",
-      thumbnail: "/file.svg",
       role: "Full Stack / Backend",
+      thumbnail: "/file.svg",
+      metrics: ["End-to-end pipeline", "Automated tests", "Security validation"],
       stack: ["TypeScript", "Node.js", "Next.js", "Testing", "REST API"],
-      highlights: [
-        "Built ingestion + validation pipeline for heterogeneous datasets.",
-        "Designed query interfaces with robust input validation.",
-        "Documented architecture and edge cases for maintainability.",
-      ],
-      metrics: ["End-to-end pipeline", "Automated tests", "Security-focused validation"],
-      links: {
-        github: "https://github.com/olddriver12356/REPO_LINK_1",
-      },
       overview:
-        "A backend-first system that ingests multiple dataset formats, normalizes them, and exposes consistent query behavior.",
+        "Built a modular backend pipeline that validates, transforms, and structures heterogeneous datasets into consistent queryable formats.",
       problem:
-        "Datasets were inconsistent and error-prone, making it hard to query reliably or enforce correctness.",
+        "Academic datasets come in inconsistent formats and require strict validation and predictable outputs for downstream queries.",
       solution: [
-        "Implemented dataset parsing + normalization with strict validation.",
-        "Added test suites (black-box and glass-box) to prevent regressions.",
-        "Structured the codebase for maintainability and team handoff.",
+        "Designed schema + validation rules to reject malformed inputs early.",
+        "Implemented transformation pipeline to normalize and structure datasets.",
+        "Added automated tests and clear error handling for maintainability.",
       ],
       impact: [
-        "Improved reliability via automated testing and validation layers.",
-        "Reduced ambiguity through clear API contracts and documentation.",
-        "Supported iterative feature delivery in an Agile workflow.",
+        "Delivered a reusable ingestion + validation pipeline for multiple datasets.",
+        "Improved developer velocity via modular design and test coverage.",
+        "Strengthened reliability with input validation and predictable outputs.",
       ],
       architecture: [
-        "Ingestion → Validation → Normalization → Query Layer",
-        "Typed data models + centralized validation utilities",
+        "Parser → Validator → Transformer → Query layer",
+        "Clear contracts between modules for testability",
       ],
-      challenges: [
-        "Handling edge cases across inconsistent datasets",
-        "Designing validation that is strict but user-friendly",
-      ],
-      learnings: [
-        "Clear API contracts save time for everyone.",
-        "Test design is a product feature when correctness matters.",
-      ],
+      links: { github: "https://github.com/olddriver12356", live: "" },
     },
   
     {
@@ -73,33 +51,25 @@ export type Project = {
       title: "Restaurant Supply Chain & Review System",
       tagline: "Relational database system for operational workflows and analytics queries.",
       year: "2025",
-      thumbnail: "/globe.svg",
       role: "Database / Backend",
-      stack: ["SQL", "Oracle DB", "Relational Modeling", "Indexing"],
-      highlights: [
-        "Designed 15+ entity normalized schema with constraints.",
-        "Loaded 1,000+ records and tuned queries with indexing.",
-        "Improved query performance by ~30% through refinements.",
-      ],
+      thumbnail: "/globe.svg",
       metrics: ["15+ entities", "1,000+ records", "~30% faster queries"],
-      links: {
-        github: "https://github.com/olddriver12356/REPO_LINK_2",
-      },
+      stack: ["SQL", "Oracle DB", "Relational Modeling"],
       overview:
-        "A database design project focused on correct constraints, scalable schema design, and query performance.",
+        "Designed and implemented a normalized schema with constraints, realistic seed data, and query optimization considerations.",
       problem:
-        "Operational workflows required consistent data integrity and efficient query patterns across multiple entities.",
+        "Operational workflows need consistent data integrity, fast analytics queries, and clear relationships across entities.",
       solution: [
-        "Built an ERD and converted it into a normalized relational schema.",
-        "Implemented constraints and refined indexing based on query workload.",
-        "Iterated in milestones with testing and realistic sample data.",
+        "Built normalized relational schema with constraints (PK/FK/CK).",
+        "Loaded realistic datasets and validated entity relationships.",
+        "Optimized access patterns via indexing and schema refinement.",
       ],
       impact: [
-        "Improved query latency and reliability through indexing + schema refinement.",
-        "Ensured data integrity via constraints and careful relationship design.",
+        "Implemented a 15+ entity schema supporting real-world workflows.",
+        "Loaded 1,000+ records for realistic query evaluation.",
+        "Reduced query latency through structural improvements and indexing.",
       ],
-      challenges: ["Balancing normalization with practical query performance"],
-      learnings: ["Indexing is workload-driven — measure, then optimize."],
+      links: { github: "https://github.com/olddriver12356", live: "" },
     },
   
     {
@@ -107,32 +77,25 @@ export type Project = {
       title: "ML Workflow Framework",
       tagline: "Reusable ML pipelines with consistent evaluation and model selection.",
       year: "2025",
-      thumbnail: "/window.svg",
       role: "ML / Data",
-      stack: ["Python", "Pandas", "Scikit-Learn", "Cross-validation"],
-      highlights: [
-        "Built reusable pipelines for preprocessing → training → evaluation.",
-        "Used CV + structured tuning to select reliable models.",
-        "Standardized evaluation metrics across experiments.",
-      ],
+      thumbnail: "/window.svg",
       metrics: ["Reusable pipeline", "CV + tuning", "Consistent metrics"],
-      links: {
-        github: "https://github.com/olddriver12356/REPO_LINK_3",
-      },
+      stack: ["Python", "Pandas", "Scikit-Learn"],
       overview:
-        "A modular ML workflow that makes experiments reproducible and evaluation consistent.",
+        "Built modular ML workflows that standardize preprocessing, training, validation, and evaluation for structured datasets.",
       problem:
-        "Ad-hoc modeling makes results hard to compare and easy to misinterpret.",
+        "ML experiments become unreliable without consistent preprocessing and evaluation procedures across models and datasets.",
       solution: [
-        "Created reusable preprocessing and training pipelines.",
-        "Applied cross-validation and systematic hyperparameter tuning.",
-        "Standardized metrics and reporting across experiments.",
+        "Modularized preprocessing + feature engineering.",
+        "Implemented cross-validation and structured tuning.",
+        "Standardized evaluation reporting for fair comparison.",
       ],
       impact: [
-        "Improved experiment reliability and comparability.",
-        "Reduced ‘one-off notebook’ work by modularizing the workflow.",
+        "Improved repeatability of experiments with consistent pipelines.",
+        "Enabled faster iteration by reusing components across datasets.",
+        "Reduced selection bias via cross-validation and structured tuning.",
       ],
-      learnings: ["Reproducibility is a feature, not a nice-to-have."],
+      links: { github: "https://github.com/olddriver12356", live: "" },
     },
   ];
   
