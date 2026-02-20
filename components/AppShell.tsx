@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Sidebar } from "./Sidebar";
-import { ThemeControls } from "./ThemeControls";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
@@ -34,7 +33,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <Link href="/" className="text-sm font-semibold tracking-tight">
             Portfolio
           </Link>
-          <ThemeControls />
+          <span className="text-xs text-[color:var(--muted)]">Menu</span>
         </div>
       </div>
 

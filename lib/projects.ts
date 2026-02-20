@@ -28,7 +28,7 @@ export type Project = {
       title: "Course Data Query Engine",
       tagline: "Transforms messy academic datasets into structured, queryable data.",
       year: "2025",
-      thumbnail: "/projects/course.png",
+      thumbnail: "/file.svg",
       role: "Full Stack / Backend",
       stack: ["TypeScript", "Node.js", "Next.js", "Testing", "REST API"],
       highlights: [
@@ -73,7 +73,7 @@ export type Project = {
       title: "Restaurant Supply Chain & Review System",
       tagline: "Relational database system for operational workflows and analytics queries.",
       year: "2025",
-      thumbnail: "/projects/restaurant.png",
+      thumbnail: "/globe.svg",
       role: "Database / Backend",
       stack: ["SQL", "Oracle DB", "Relational Modeling", "Indexing"],
       highlights: [
@@ -107,7 +107,7 @@ export type Project = {
       title: "ML Workflow Framework",
       tagline: "Reusable ML pipelines with consistent evaluation and model selection.",
       year: "2025",
-      thumbnail: "/projects/ml.png",
+      thumbnail: "/window.svg",
       role: "ML / Data",
       stack: ["Python", "Pandas", "Scikit-Learn", "Cross-validation"],
       highlights: [

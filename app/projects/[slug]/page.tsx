@@ -1,7 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getProject } from "@/lib/projects";
+import { getProject, PROJECTS } from "@/lib/projects";
 import { notFound } from "next/navigation";
+
+export const dynamicParams = false;
+
+export function generateStaticParams() {
+  return PROJECTS.map((p) => ({ slug: p.slug }));
+}
 
 export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const project = getProject(params.slug);

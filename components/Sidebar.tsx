@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeControls } from "./ThemeControls";
 
 type NavItem = {
   label: string;
@@ -24,7 +23,7 @@ const PROFILE = {
 const NAV: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Resume", href: PROFILE.links.resume },
+  { label: "Resume", href: "/resume" },
   { label: "GitHub", href: PROFILE.links.github, external: true },
   { label: "LinkedIn", href: PROFILE.links.linkedin, external: true },
   { label: "Email", href: PROFILE.links.email, external: true },
@@ -53,7 +52,15 @@ export function Sidebar({
             <div className="text-sm font-semibold tracking-tight">{PROFILE.name}</div>
             <div className="mt-1 text-xs text-[color:var(--muted)]">{PROFILE.role}</div>
           </div>
-          <ThemeControls />
+          <span
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)]"
+            aria-hidden="true"
+            title="Accent drifts automatically"
+            style={{
+              boxShadow:
+                "0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent), 0 16px 40px color-mix(in oklab, var(--accent) 14%, transparent)",
+            }}
+          />
         </div>
 
         <div className="my-5 h-px w-full bg-white/5" />
@@ -97,13 +104,7 @@ export function Sidebar({
         </nav>
 
         <div className="mt-6 rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-3 text-xs text-[color:var(--muted)]">
-          <div className="font-semibold text-[color:color-mix(in_oklab,var(--fg)_88%,transparent)]">
-            Tip
-          </div>
-          <div className="mt-1">
-            Use <span className="font-semibold">Theme</span> and{" "}
-            <span className="font-semibold">Accent</span> to match your mood.
-          </div>
+          Accent color shifts automatically over time.
         </div>
       </div>
     </div>

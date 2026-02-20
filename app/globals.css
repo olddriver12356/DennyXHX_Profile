@@ -229,18 +229,6 @@ section[id] {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
 }
 
-.glass-panel {
-  background: linear-gradient(
-    150deg,
-    rgba(15, 23, 42, 0.86) 0%,
-    rgba(15, 23, 42, 0.66) 45%,
-    rgba(30, 41, 59, 0.58) 100%
-  );
-  border: 1px solid var(--border);
-  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.4);
-  backdrop-filter: blur(14px);
-}
-
 .sidebar-link {
   border: 1px solid transparent;
   color: color-mix(in oklab, var(--fg) 86%, transparent);

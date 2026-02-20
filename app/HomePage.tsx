@@ -23,10 +23,6 @@ const PHOTO = {
   alt: "Professional headshot of Denny Xie",
 };
 
-function cn(...classes: Array<string | false | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
 function Chip({ children }: { children: React.ReactNode }) {
   return <span className="chip">{children}</span>;
 }
@@ -43,7 +39,7 @@ function ButtonLink({
   const isExternal = href.startsWith("http") || href.startsWith("mailto:");
   return (
     <Link
-      className={cn("btn", variant === "primary" && "btn-primary")}
+      className={variant === "primary" ? "btn btn-primary" : "btn"}
       href={href}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noreferrer" : undefined}
@@ -162,7 +158,7 @@ export default function HomePage() {
             <ButtonLink href="/projects" variant="primary">
               View projects
             </ButtonLink>
-            <ButtonLink href={PROFILE.links.resume} variant="secondary">
+            <ButtonLink href="/resume" variant="secondary">
               Resume
             </ButtonLink>
             <ButtonLink href={PROFILE.links.email} variant="secondary">
