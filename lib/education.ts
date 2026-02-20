@@ -9,6 +9,9 @@ export type EducationItem = {
   summary: string;
   Grade?: string[];
   coursework?: string[];
+  links?: {
+    website?: string;
+  };
 };
 
 export const EDUCATION: EducationItem[] = [
