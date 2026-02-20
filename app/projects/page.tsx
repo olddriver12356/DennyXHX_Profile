@@ -61,7 +61,12 @@ export default function ProjectsPage() {
 
             <div className="relative flex gap-4">
               <div className="relative h-20 w-28 flex-none overflow-hidden rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface-2)_65%,transparent)]">
-                <Image src={p.thumbnail} alt={p.title} fill className="object-cover" />
+              <Image
+                src={p.thumbnail}
+                alt={p.title}
+                fill
+                className="object-cover saturate-110 contrast-105 transition duration-300 group-hover:scale-[1.03]"
+                />
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2 text-xs text-[color:var(--muted)]">

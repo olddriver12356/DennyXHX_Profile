@@ -1,0 +1,90 @@
+<svg width="960" height="540" viewBox="0 0 960 540" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="110" y1="40" x2="860" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#050816"/>
+      <stop offset="0.55" stop-color="#0A0F22"/>
+      <stop offset="1" stop-color="#070A14"/>
+    </linearGradient>
+
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(260 140) rotate(30) scale(440 320)">
+      <stop stop-color="#22C55E" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#22C55E" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(740 330) rotate(20) scale(460 340)">
+      <stop stop-color="#A78BFA" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+
+    <linearGradient id="glass" x1="180" y1="110" x2="780" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="white" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="240" y1="170" x2="720" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22C55E"/>
+      <stop offset="0.5" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="960" height="540" rx="48" fill="url(#bg)"/>
+  <path d="M0 0H960V540H0V0Z" fill="url(#glowA)" filter="url(#soft)"/>
+  <path d="M0 0H960V540H0V0Z" fill="url(#glowB)" filter="url(#soft)"/>
+
+  <rect x="150" y="110" width="660" height="320" rx="28" fill="url(#glass)" stroke="white" stroke-opacity="0.10" filter="url(#shadow)"/>
+
+  <!-- Pipeline steps -->
+  <g transform="translate(210 200)">
+    <rect x="0" y="0" width="150" height="170" rx="18" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.10"/>
+    <rect x="18" y="20" width="90" height="10" rx="5" fill="white" fill-opacity="0.14"/>
+    <rect x="18" y="46" width="114" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+    <rect x="18" y="62" width="104" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+    <rect x="18" y="78" width="96" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+
+    <rect x="18" y="112" width="60" height="10" rx="5" fill="white" fill-opacity="0.12"/>
+    <rect x="18" y="132" width="84" height="8" rx="4" fill="white" fill-opacity="0.09"/>
+    <rect x="18" y="148" width="72" height="8" rx="4" fill="white" fill-opacity="0.09"/>
+  </g>
+
+  <g transform="translate(405 200)">
+    <rect x="0" y="0" width="150" height="170" rx="18" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.10"/>
+    <path d="M24 132C40 102 56 140 78 98C96 64 118 112 126 54" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="78" cy="98" r="4" fill="white" fill-opacity="0.85"/>
+    <circle cx="126" cy="54" r="4" fill="white" fill-opacity="0.85"/>
+    <rect x="18" y="20" width="110" height="10" rx="5" fill="white" fill-opacity="0.14"/>
+    <rect x="18" y="46" width="90" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+  </g>
+
+  <g transform="translate(600 200)">
+    <rect x="0" y="0" width="150" height="170" rx="18" fill="white" fill-opacity="0.05" stroke="white" stroke-opacity="0.10"/>
+    <rect x="18" y="20" width="94" height="10" rx="5" fill="white" fill-opacity="0.14"/>
+    <rect x="18" y="46" width="114" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+    <rect x="18" y="62" width="104" height="8" rx="4" fill="white" fill-opacity="0.10"/>
+
+    <!-- “model” ring -->
+    <circle cx="86" cy="122" r="26" fill="white" fill-opacity="0.04" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M86 96C98 96 108 106 108 118" stroke="white" stroke-opacity="0.35" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- connectors -->
+  <path d="M360 285H405" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <path d="M555 285H600" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- small “CV” chips -->
+  <g opacity="0.95">
+    <rect x="230" y="150" width="84" height="26" rx="13" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.10"/>
+    <rect x="328" y="150" width="98" height="26" rx="13" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.10"/>
+    <rect x="440" y="150" width="110" height="26" rx="13" fill="white" fill-opacity="0.06" stroke="white" stroke-opacity="0.10"/>
+  </g>
+</svg>

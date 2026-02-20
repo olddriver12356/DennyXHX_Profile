@@ -23,12 +23,12 @@ export type Project = {
   
   export const PROJECTS: Project[] = [
     {
-      slug: "course-data-query-engine",
+      slug: "Course Database Management Query Engine",
       title: "Course Data Query Engine",
       tagline: "Transforms messy academic datasets into structured, queryable data.",
       year: "2025",
       role: "Full Stack / Backend",
-      thumbnail: "/file.svg",
+      thumbnail: "/course-data.svg",
       metrics: ["End-to-end pipeline", "Automated tests", "Security validation"],
       stack: ["TypeScript", "Node.js", "Next.js", "Testing", "REST API"],
       overview:
@@ -53,12 +53,12 @@ export type Project = {
     },
   
     {
-      slug: "restaurant-db-system",
+      slug: "Restaurant Supply Chain & Review Management System",
       title: "Restaurant Supply Chain & Review System",
       tagline: "Relational database system for operational workflows and analytics queries.",
       year: "2025",
       role: "Database / Backend",
-      thumbnail: "/globe.svg",
+      thumbnail: "/restaurant-db.svg",
       metrics: ["15+ entities", "1,000+ records", "~30% faster queries"],
       stack: ["SQL", "Oracle DB", "Relational Modeling"],
       overview:
@@ -79,12 +79,12 @@ export type Project = {
     },
   
     {
-      slug: "ml-workflow-framework",
+      slug: "Machine Learning & Predictive Modeling",
       title: "ML Workflow Framework",
       tagline: "Reusable ML pipelines with consistent evaluation and model selection.",
-      year: "2025",
+      year: "2026",
       role: "ML / Data",
-      thumbnail: "/window.svg",
+      thumbnail: "/ml-workflow.svg",
       metrics: ["Reusable pipeline", "CV + tuning", "Consistent metrics"],
       stack: ["Python", "Pandas", "Scikit-Learn"],
       overview:
