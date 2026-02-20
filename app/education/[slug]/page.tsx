@@ -53,11 +53,11 @@ export default async function EducationDetailPage({
         </div>
       </section>
 
-      {edu.highlights?.length ? (
+      {edu.Grade?.length ? (
         <section className="surface rounded-2xl p-7">
-          <h2 className="text-lg font-semibold tracking-tight">Highlights</h2>
+          <h2 className="text-lg font-semibold tracking-tight">Grade</h2>
           <ul className="mt-3 space-y-2 text-[color:var(--muted)]">
-            {edu.highlights.map((x) => (
+            {edu.Grade.map((x) => (
               <li key={x} className="flex gap-2">
                 <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-[color:var(--accent)]" />
                 <span>{x}</span>
