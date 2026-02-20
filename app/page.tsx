@@ -6,19 +6,16 @@ type Project = {
   tagline: string;
   impact: string[];
   tech: string[];
-  links: {
-    github?: string;
-    live?: string;
-  };
+  links: { github?: string; live?: string };
 };
 
 const PROFILE = {
   name: "Denny Xie",
   headline: "Business + Tech hybrid building full-stack products with measurable impact.",
   subheadline:
-    "I build data-driven systems that turn complex business requirements into reliable backend architectures and production-ready applications.",
+    "I turn ambiguous business problems into shipped software — clean UX, reliable APIs, and data-driven decisions.",
   links: {
-    email: "honghongxia.xie@gmail.com",
+    email: "mailto:honghongxia.xie@gmail.com",
     github: "https://github.com/olddriver12356",
     linkedin: "https://www.linkedin.com/in/denny-xie-493347262/",
     resume: "/resume.pdf",
@@ -27,55 +24,56 @@ const PROFILE = {
 
 const PROJECTS: Project[] = [
   {
-    title: "UBC Course Database Management Project",
-    tagline: "Built a modular backend system to transform heterogeneous academic datasets into structured, queryable formats.",
+    title: "AI-Ready Course Data Platform",
+    tagline: "Backend pipeline to validate, transform, and structure heterogeneous datasets into queryable formats.",
     impact: [
-      "Built a modular backend system to validate, transform, and structure heterogeneous datasets into queryable formats.",
-      "Designed a data ingestion and validation pipeline for unstructured course datasets.",
-      "Applied production-style security modeling and input validation aligned with SaaS best practices.",
-      "Documented system architecture and edge cases for team maintainability.",
-      "Collaborated with another teamate within a Agile-based group, iterating on different program feature, user requirements."
+      "Built a modular ingestion + validation pipeline for unstructured datasets.",
+      "Added black-box and glass-box test suites to improve transformation reliability.",
+      "Documented architecture and edge cases to improve maintainability and team handoff.",
     ],
-    tech: ["Next.js", "TypeScript", "Node.js", "Testing", "CI/CD", "REST API"],
+    tech: ["TypeScript", "Node.js", "REST APIs", "Testing"],
     links: {
-      github: "https://github.com/olddriver12356/REPO_LINK_1",
-      live: "https://YOUR_DEMO_LINK_1",
+      github: "https://github.com/olddriver12356/DennyXHX_Profile",
+      // live: "https://your-demo-link",
     },
   },
   {
     title: "Restaurant Supply Chain & Review System",
-    tagline: "Designed and implemented a full relational database system to manage restaurant supply chain and review workflows.",
+    tagline: "Relational database design and performance optimization for operational workflows.",
     impact: [
-      "Architected a 15+ entity normalized relational schema with clear constraints and relationships.",
-      "Loaded and validated 1,000+ realistic records and optimized query performance via indexing and schema refinement.",
-      "Reduced average query latency by ~30% through structural improvements.",
-      "Iterated design across multiple Agile milestones (ERD → Relational Schema → SQL Implementation)"
+      "Designed a 15+ entity normalized relational schema with constraints and relationships.",
+      "Loaded 1,000+ rows and improved query latency ~30% via indexing and schema refinement.",
+      "Collaborated in an Agile team and iterated across ERD → schema → SQL implementation.",
     ],
-    tech: ["JavaScript", "SQL", "Oracle DB", "Relational Modeling"],
+    tech: ["SQL", "Oracle DB", "JavaScript", "Indexing"],
     links: {
-      github: "https://github.com/olddriver12356/REPO_LINK_2",
-      live: "https://YOUR_DEMO_LINK_2",
+      // github: "https://github.com/olddriver12356/<your-repo>",
     },
   },
   {
-    title: "Machine Learning Workflow Framework",
-    tagline: "Built modular machine learning pipelines for structured datasets with systematic validation and model selection.",
+    title: "ML Workflow & Predictive Modeling",
+    tagline: "Reusable ML pipelines with systematic validation and model selection.",
     impact: [
-      "Developed reusable ML workflows integrating preprocessing, feature engineering, training, and evaluation.",
-      "Implemented classification and regression models across real-world datasets.",
-      "Designed cross-validation and structured hyperparameter tuning to ensure reliable model selection.",
+      "Built modular workflows: preprocessing, feature transforms, training, evaluation.",
+      "Implemented classification and regression with cross-validation and tuning.",
+      "Compared models using consistent metrics to ensure reliable selection.",
     ],
-    tech: ["Python", "Pandas", "Scikit-Learn", "Model Evaluation"],
+    tech: ["Python", "Pandas", "scikit-learn", "Cross-validation"],
     links: {
-      github: "https://github.com/olddriver12356/REPO_LINK_3",
-      live: "https://YOUR_DEMO_LINK_3",
+      // github: "https://github.com/olddriver12356/<your-repo>",
     },
   },
 ];
 
+// ---------- UI building blocks ----------
+
+function cn(...classes: Array<string | false | undefined>) {
+  return classes.filter(Boolean).join(" ");
+}
+
 function Chip({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-neutral-800/60 bg-neutral-900/40 px-3 py-1 text-xs text-neutral-200">
+    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80 backdrop-blur">
       {children}
     </span>
   );
@@ -84,33 +82,62 @@ function Chip({ children }: { children: React.ReactNode }) {
 function ButtonLink({
   href,
   children,
-  variant = "primary",
+  variant = "secondary",
 }: {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
 }) {
   const base =
-    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition border";
+    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30";
   const styles =
     variant === "primary"
-      ? "bg-white text-black border-white hover:opacity-90"
-      : "bg-transparent text-white border-neutral-800 hover:bg-neutral-900";
+      ? "bg-white text-black hover:bg-white/90"
+      : "border border-white/10 bg-white/5 text-white/90 hover:bg-white/10";
+  const isExternal = href.startsWith("http") || href.startsWith("mailto:");
   return (
-    <Link className={`${base} ${styles}`} href={href} target={href.startsWith("http") ? "_blank" : undefined}>
+    <Link
+      className={cn(base, styles)}
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noreferrer" : undefined}
+    >
       {children}
     </Link>
   );
 }
 
+function SectionTitle({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle?: string;
+}) {
+  return (
+    <div className="flex items-end justify-between gap-4">
+      <div>
+        <h2 className="text-lg font-semibold text-white/95">{title}</h2>
+        {subtitle && <p className="mt-1 text-sm text-white/60">{subtitle}</p>}
+      </div>
+    </div>
+  );
+}
+
 function ProjectCard({ p }: { p: Project }) {
   return (
-    <div className="rounded-2xl border border-neutral-900 bg-neutral-950/40 p-6 shadow-sm">
-      <div className="flex items-start justify-between gap-4">
+    <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-white/20">
+      {/* subtle glow */}
+      <div className="pointer-events-none absolute -inset-24 opacity-0 transition group-hover:opacity-100">
+        <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,rgba(99,102,241,0.20),transparent_55%),radial-gradient(circle_at_70%_60%,rgba(16,185,129,0.14),transparent_50%)]" />
+      </div>
+
+      <div className="relative flex items-start justify-between gap-4">
         <div>
-          <h3 className="text-lg font-semibold text-white">{p.title}</h3>
-          <p className="mt-1 text-sm text-neutral-300">{p.tagline}</p>
+          <h3 className="text-base font-semibold text-white">{p.title}</h3>
+          <p className="mt-1 text-sm leading-relaxed text-white/70">{p.tagline}</p>
         </div>
+
         <div className="flex gap-2">
           {p.links.github && (
             <ButtonLink href={p.links.github} variant="secondary">
@@ -125,16 +152,16 @@ function ProjectCard({ p }: { p: Project }) {
         </div>
       </div>
 
-      <ul className="mt-4 space-y-2 text-sm text-neutral-200">
+      <ul className="relative mt-4 space-y-2 text-sm text-white/80">
         {p.impact.map((b, i) => (
           <li key={i} className="flex gap-2">
-            <span className="mt-1 inline-block h-1.5 w-1.5 flex-none rounded-full bg-neutral-500" />
+            <span className="mt-2 inline-block h-1.5 w-1.5 flex-none rounded-full bg-white/40" />
             <span>{b}</span>
           </li>
         ))}
       </ul>
 
-      <div className="mt-5 flex flex-wrap gap-2">
+      <div className="relative mt-5 flex flex-wrap gap-2">
         {p.tech.map((t) => (
           <Chip key={t}>{t}</Chip>
         ))}
@@ -145,57 +172,68 @@ function ProjectCard({ p }: { p: Project }) {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <div className="mx-auto max-w-5xl px-6 py-10">
-        {/* Top nav */}
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-2xl border border-neutral-800 bg-neutral-950" />
-            <div>
-              <div className="text-sm font-semibold">{PROFILE.name}</div>
-              <div className="text-xs text-neutral-400">Full Stack • Business + Tech</div>
+    <main className="min-h-screen text-white">
+      {/* Background: gradient + grid + vignette */}
+      <div className="fixed inset-0 -z-10 bg-[#070A12]" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_20%_10%,rgba(99,102,241,0.18),transparent_55%),radial-gradient(circle_at_80%_30%,rgba(16,185,129,0.10),transparent_50%),radial-gradient(circle_at_40%_90%,rgba(236,72,153,0.10),transparent_55%)]" />
+      <div className="fixed inset-0 -z-10 opacity-[0.12] [background-image:linear-gradient(to_right,rgba(255,255,255,0.20)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.20)_1px,transparent_1px)] [background-size:60px_60px]" />
+      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_center,transparent_35%,rgba(0,0,0,0.75)_85%)]" />
+
+      <div className="mx-auto max-w-5xl px-6">
+        {/* Sticky top nav */}
+        <header className="sticky top-0 z-20 -mx-6 border-b border-white/10 bg-[#070A12]/60 px-6 py-4 backdrop-blur">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-2xl border border-white/10 bg-white/5" />
+              <div>
+                <div className="text-sm font-semibold">{PROFILE.name}</div>
+                <div className="text-xs text-white/60">Full Stack • Business + Tech</div>
+              </div>
             </div>
+
+            <nav className="flex flex-wrap gap-2">
+              <ButtonLink href={PROFILE.links.resume} variant="secondary">
+                Resume
+              </ButtonLink>
+              <ButtonLink href={PROFILE.links.linkedin} variant="secondary">
+                LinkedIn
+              </ButtonLink>
+              <ButtonLink href={PROFILE.links.github} variant="secondary">
+                GitHub
+              </ButtonLink>
+              <ButtonLink href={PROFILE.links.email} variant="primary">
+                Contact
+              </ButtonLink>
+            </nav>
           </div>
-          <div className="flex flex-wrap gap-2">
-            <ButtonLink href={PROFILE.links.resume} variant="secondary">
-              Resume
-            </ButtonLink>
-            <ButtonLink href={PROFILE.links.linkedin} variant="secondary">
-              LinkedIn
-            </ButtonLink>
-            <ButtonLink href={PROFILE.links.github} variant="secondary">
-              github
-            </ButtonLink>
-            <ButtonLink href={PROFILE.links.email} variant="primary">
-              Contact
-            </ButtonLink>
-          </div>
-        </div>
+        </header>
 
         {/* Hero */}
-        <section className="mt-12">
-          <h1 className="text-3xl font-semibold leading-tight sm:text-5xl">
-            {PROFILE.headline}
+        <section className="py-14 sm:py-20">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70 backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
+            Open to internships • Vancouver, BC
+          </div>
+
+          <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
+            <span className="text-white">{PROFILE.headline}</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-300 sm:text-lg">
+
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
             {PROFILE.subheadline}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-7 flex flex-wrap gap-2">
             <Chip>Full-stack engineering</Chip>
             <Chip>Product thinking</Chip>
             <Chip>Data + ML exposure</Chip>
-            <Chip>Clean systems, clean UX</Chip>
+            <Chip>Reliable systems</Chip>
           </div>
         </section>
 
         {/* Projects */}
-        <section className="mt-14">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-xl font-semibold">Featured projects</h2>
-            <p className="text-sm text-neutral-400">3 highlights — built end-to-end</p>
-          </div>
-
+        <section className="pb-6">
+          <SectionTitle title="Featured projects" subtitle="Three highlights — built end-to-end" />
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {PROJECTS.map((p) => (
               <ProjectCard key={p.title} p={p} />
@@ -203,39 +241,49 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* About */}
-        <section className="mt-14 rounded-2xl border border-neutral-900 bg-neutral-950/40 p-6">
-          <h2 className="text-xl font-semibold">How I work</h2>
-          <div className="mt-4 grid gap-6 md:grid-cols-3">
-            <div>
-              <div className="text-sm font-semibold">Business-Driven Engineering</div>
-              <p className="mt-2 text-sm text-neutral-300">
-               I translate business constraints and strategic goals into technical architectures with measurable outcomes.
-              </p>
-            </div>
-            <div>
-              <div className="text-sm font-semibold">Backend & Data Focused</div>
-              <p className="mt-2 text-sm text-neutral-300">
-               I care about schema design, API contracts, validation pipelines, and performance optimization — not just interfaces.
-              </p>
-            </div>
-            <div>
-              <div className="text-sm font-semibold">Iterative & Analytical</div>
-              <p className="mt-2 text-sm text-neutral-300">
-               From ROI modeling in investment analysis to hyperparameter tuning in ML, I build systems with measurement in mind.
-              </p>
-            </div>
+        {/* How I work */}
+        <section className="py-14">
+          <SectionTitle title="How I work" subtitle="Business-first, engineering depth, and fast iteration." />
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                t: "Business-first",
+                d: "Start with user + goal, define success metrics, then scope a shippable MVP.",
+              },
+              {
+                t: "Engineering depth",
+                d: "Care about API contracts, data models, edge cases, and maintainability — not just demos.",
+              },
+              {
+                t: "Iterate fast",
+                d: "Ship early, measure, refine. Tight feedback loops and clean incremental improvements.",
+              },
+            ].map((x) => (
+              <div
+                key={x.t}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur"
+              >
+                <div className="text-sm font-semibold text-white/90">{x.t}</div>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">{x.d}</p>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="mt-14 border-t border-neutral-900 pt-8 text-sm text-neutral-400">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <footer className="border-t border-white/10 py-10 text-sm text-white/60">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>© {new Date().getFullYear()} {PROFILE.name}</div>
             <div className="flex gap-4">
-              <Link className="hover:text-white" href={PROFILE.links.github} target="_blank">GitHub</Link>
-              <Link className="hover:text-white" href={PROFILE.links.linkedin} target="_blank">LinkedIn</Link>
-              <Link className="hover:text-white" href={PROFILE.links.email}>Email</Link>
+              <Link className="hover:text-white" href={PROFILE.links.github} target="_blank" rel="noreferrer">
+                GitHub
+              </Link>
+              <Link className="hover:text-white" href={PROFILE.links.linkedin} target="_blank" rel="noreferrer">
+                LinkedIn
+              </Link>
+              <Link className="hover:text-white" href={PROFILE.links.email}>
+                Email
+              </Link>
             </div>
           </div>
         </footer>
