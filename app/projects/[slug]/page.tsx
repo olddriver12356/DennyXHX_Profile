@@ -29,18 +29,6 @@ export default async function ProjectDetailPage({
           ← Back
         </Link>
 
-        <div className="flex gap-2">
-          {project.links?.github && (
-            <Link className="btn" href={project.links.github} target="_blank" rel="noreferrer">
-              GitHub
-            </Link>
-          )}
-          {project.links?.live && project.links.live.trim() !== "" && (
-            <Link className="btn btn-primary" href={project.links.live} target="_blank" rel="noreferrer">
-              Live
-            </Link>
-          )}
-        </div>
       </header>
 
       {/* Visual hero */}
