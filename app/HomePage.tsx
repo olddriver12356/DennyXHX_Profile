@@ -116,7 +116,7 @@ function PhotoCard() {
 
       <div className="relative mt-4 space-y-1">
         <div className="text-sm font-semibold">{PROFILE.name}</div>
-        <div className="text-xs text-[color:var(--muted)]">Full Stack • Business + Tech</div>
+        <span className="chip">Full Stack • Business + Tech</span>
       </div>
 
       <div className="relative mt-4 flex flex-wrap gap-2">
@@ -161,14 +161,11 @@ export default function HomePage() {
             <Chip>Clean UX</Chip>
           </div>
 
-          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[color:var(--muted)] animate-fade-up delay-400">
-            <span>GPA 3.7</span>
-            <span className="opacity-40">·</span>
-            <span>3 Projects</span>
-            <span className="opacity-40">·</span>
-            <span>BCom CS @ UBC</span>
-            <span className="opacity-40">·</span>
-            <span>2028 Grad</span>
+          <div className="mt-5 flex flex-wrap gap-2 animate-fade-up delay-400">
+            <span className="chip">GPA 3.7</span>
+            <span className="chip">3 Projects</span>
+            <span className="chip">BCom CS @ UBC</span>
+            <span className="chip">2028 Grad</span>
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2 animate-fade-up delay-500">
@@ -195,7 +192,10 @@ export default function HomePage() {
       <section id="education" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
+              Education
+            </div>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">Education</h2>
             <p className="mt-2 text-sm text-[color:var(--muted)]">
               A quick summary — click in for details.
             </p>
@@ -228,7 +228,10 @@ export default function HomePage() {
       <section id="work" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">Work experience</h2>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
+              Work
+            </div>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">Work experience</h2>
             <p className="mt-2 text-sm text-[color:var(--muted)]">
               Roles and outcomes — click in for full scope.
             </p>
@@ -261,7 +264,10 @@ export default function HomePage() {
       <section id="projects">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">Featured projects</h2>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
+              Projects
+            </div>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">Featured projects</h2>
             <p className="mt-2 text-sm text-[color:var(--muted)]">
               Highlights with measurable outcomes and clean architecture.
             </p>
@@ -284,7 +290,10 @@ export default function HomePage() {
       <section id="volunteer" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-xl font-semibold tracking-tight">Volunteer experience</h2>
+            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
+              Volunteer
+            </div>
+            <h2 className="mt-3 text-xl font-semibold tracking-tight">Volunteer experience</h2>
             <p className="mt-2 text-sm text-[color:var(--muted)]">
               Community work and leadership outside of coursework.
             </p>
@@ -321,8 +330,8 @@ export default function HomePage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
-            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent)_14%,transparent)] text-[color:var(--accent)]">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent)_14%,transparent)] text-[color:var(--accent)]">
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
                 <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.6"/>
                 <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.6"/>
                 <path d="M12 12v4M10 14h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
@@ -335,8 +344,8 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
-            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-2)_14%,transparent)] text-[color:var(--accent-2)]">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-2)_14%,transparent)] text-[color:var(--accent-2)]">
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
                 <path d="M4 6c0 1.66 3.58 3 8 3s8-1.34 8-3-3.58-3-8-3-8 1.34-8 3Z" stroke="currentColor" strokeWidth="1.6"/>
                 <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="currentColor" strokeWidth="1.6"/>
                 <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="currentColor" strokeWidth="1.6"/>
@@ -349,8 +358,8 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
-            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-3)_14%,transparent)] text-[color:var(--accent-3)]">
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-3)_14%,transparent)] text-[color:var(--accent-3)]">
+              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
                 <path d="M1 4v6h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M3.51 15a9 9 0 1 0 .49-4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
               </svg>
@@ -363,6 +372,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <div className="divider" />
 
       {/* Footer */}
       <footer className="pt-6 text-sm text-[color:var(--muted)]">

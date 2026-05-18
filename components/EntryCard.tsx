@@ -45,7 +45,7 @@ export function EntryCard({
         </p>
 
         {chips.length ? (
-          <div className="mt-4 flex flex-wrap gap-2">
+          <div className="mt-3 border-t border-[color:var(--border)] pt-3 flex flex-wrap gap-2">
             {chips.slice(0, 6).map((c) => (
               <span key={c} className="chip">
                 {c}
