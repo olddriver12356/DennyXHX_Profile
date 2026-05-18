@@ -33,7 +33,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           <Link href="/" className="text-sm font-semibold tracking-tight">
             Portfolio
           </Link>
-          <span className="text-xs text-[color:var(--muted)]">Menu</span>
+          <span
+            className="inline-flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold"
+            style={{
+              background: "linear-gradient(135deg, var(--accent), var(--accent-2))",
+              color: "rgba(2, 6, 23, 0.92)",
+            }}
+          >
+            DX
+          </span>
         </div>
       </div>
 

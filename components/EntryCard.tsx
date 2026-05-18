@@ -18,13 +18,13 @@ export function EntryCard({
   return (
     <Link
       href={href}
-      className="group relative block overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_58%,transparent)] p-6 backdrop-blur transition hover:-translate-y-0.5 hover:border-[color:color-mix(in_oklab,var(--accent)_38%,var(--border))]"
+      className="group relative block overflow-hidden rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_58%,transparent)] pl-5 pr-6 py-6 backdrop-blur transition hover:-translate-y-0.5 hover:border-[color:color-mix(in_oklab,var(--accent)_38%,var(--border))]"
     >
       <div className="pointer-events-none absolute -inset-28 opacity-0 transition group-hover:opacity-100">
         <div className="h-full w-full bg-[radial-gradient(circle_at_30%_15%,color-mix(in_oklab,var(--accent)_16%,transparent),transparent_55%),radial-gradient(circle_at_70%_60%,color-mix(in_oklab,var(--accent-2)_14%,transparent),transparent_55%)]" />
       </div>
 
-      <div className="relative">
+      <div className="relative border-l-2 border-[color:color-mix(in_oklab,var(--accent)_30%,transparent)] pl-4">
         {eyebrow ? (
           <div className="text-xs text-[color:var(--muted)]">{eyebrow}</div>
         ) : null}

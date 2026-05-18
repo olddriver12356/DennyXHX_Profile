@@ -318,6 +318,14 @@ section[id] {
   background-clip: text;
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -333,5 +341,9 @@ section[id] {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .animate-marquee {
+    animation: none;
   }
 }

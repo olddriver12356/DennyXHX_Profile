@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "./ThemeToggle";
 
 type NavItem = {
   label: string;
@@ -53,7 +54,7 @@ export function Sidebar({
         <div className="flex items-start justify-between gap-4">
           <div>
             <div className="text-sm font-semibold tracking-tight">{PROFILE.name}</div>
-            <div className="mt-1 text-xs text-[color:var(--muted)]">{PROFILE.role}</div>
+            <div className="mt-1 text-xs text-[color:var(--muted)]">BCom CS · UBC · 2028</div>
           </div>
           <span
             className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold"
@@ -69,6 +70,14 @@ export function Sidebar({
         </div>
 
         <div className="my-5 h-px w-full bg-white/5" />
+
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[color:color-mix(in_oklab,var(--accent)_35%,transparent)] bg-[color:color-mix(in_oklab,var(--accent)_10%,transparent)] px-3 py-1.5 text-xs text-[color:var(--accent)]">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--accent)] opacity-60" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
+          </span>
+          Open to internships
+        </div>
 
         <nav className="grid gap-2">
           {NAV.map((item) => {
@@ -108,6 +117,9 @@ export function Sidebar({
           })}
         </nav>
 
+        <div className="mt-4 border-t border-[color:var(--border)] pt-4">
+          <ThemeToggle />
+        </div>
       </div>
     </div>
   );

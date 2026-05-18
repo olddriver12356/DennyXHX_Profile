@@ -5,6 +5,7 @@ import { EDUCATION } from "@/lib/education";
 import { WORK } from "@/lib/work";
 import { VOLUNTEER } from "@/lib/volunteer";
 import { EntryCard } from "@/components/EntryCard";
+import ProjectVisual from "@/components/ProjectVisuals";
 
 const PROFILE = {
   name: "Denny Xie",
@@ -136,8 +137,16 @@ export default function HomePage() {
   return (
     <div className="space-y-14">
       {/* Hero */}
-      <section className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
-        <div>
+      <section className="relative grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-start">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.035]"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--fg) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+
+        <div className="min-w-0">
           <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-4 py-2 text-xs text-[color:var(--muted)] backdrop-blur animate-fade-in delay-100">
             <span
               className="h-2 w-2 rounded-full"
@@ -146,7 +155,7 @@ export default function HomePage() {
             Open to internships • Vancouver, BC
           </div>
 
-          <h1 className="text-gradient mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-6xl animate-fade-up delay-200">
+          <h1 className="text-gradient mt-6 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl animate-fade-up delay-200">
             {PROFILE.headline}
           </h1>
 
@@ -179,9 +188,23 @@ export default function HomePage() {
               Contact
             </ButtonLink>
           </div>
+
+          {/* Tech tape */}
+          <div className="relative mt-8 overflow-hidden">
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[color:var(--bg)] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[color:var(--bg)] to-transparent" />
+            <div className="flex gap-3 animate-marquee whitespace-nowrap">
+              {["TypeScript","Node.js","Python","SQL","React","Next.js","PostgreSQL","REST APIs","Scikit-Learn","Oracle DB","Pandas","Git"].map((t) => (
+                <span key={t} className="chip flex-none">{t}</span>
+              ))}
+              {["TypeScript","Node.js","Python","SQL","React","Next.js","PostgreSQL","REST APIs","Scikit-Learn","Oracle DB","Pandas","Git"].map((t) => (
+                <span key={t + "-2"} className="chip flex-none">{t}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="md:pt-2">
+        <div className="min-w-0 order-first md:order-last md:pt-2">
           <PhotoCard />
         </div>
       </section>
@@ -191,14 +214,14 @@ export default function HomePage() {
       {/* Education */}
       <section id="education" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
-              Education
+          <div className="flex items-start gap-4">
+            <span className="font-mono text-xs text-[color:var(--muted)] opacity-50 select-none pt-1">01</span>
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">Education</h2>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">
+                A quick summary — click in for details.
+              </p>
             </div>
-            <h2 className="mt-3 text-xl font-semibold tracking-tight">Education</h2>
-            <p className="mt-2 text-sm text-[color:var(--muted)]">
-              A quick summary — click in for details.
-            </p>
           </div>
           <Link className="btn w-fit" href="/education">
             View all →
@@ -227,14 +250,14 @@ export default function HomePage() {
       {/* Work */}
       <section id="work" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
-              Work
+          <div className="flex items-start gap-4">
+            <span className="font-mono text-xs text-[color:var(--muted)] opacity-50 select-none pt-1">02</span>
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">Work experience</h2>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">
+                Roles and outcomes — click in for full scope.
+              </p>
             </div>
-            <h2 className="mt-3 text-xl font-semibold tracking-tight">Work experience</h2>
-            <p className="mt-2 text-sm text-[color:var(--muted)]">
-              Roles and outcomes — click in for full scope.
-            </p>
           </div>
           <Link className="btn w-fit" href="/work">
             View all →
@@ -263,24 +286,40 @@ export default function HomePage() {
       {/* Featured projects */}
       <section id="projects">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
-              Projects
+          <div className="flex items-start gap-4">
+            <span className="font-mono text-xs text-[color:var(--muted)] opacity-50 select-none pt-1">03</span>
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">Featured projects</h2>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">
+                Highlights with measurable outcomes and clean architecture.
+              </p>
             </div>
-            <h2 className="mt-3 text-xl font-semibold tracking-tight">Featured projects</h2>
-            <p className="mt-2 text-sm text-[color:var(--muted)]">
-              Highlights with measurable outcomes and clean architecture.
-            </p>
           </div>
           <Link href="/projects" className="btn w-fit">
             View all →
           </Link>
         </div>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {featured.map((slug) => (
-            <ProjectCard key={slug} slug={slug} />
-          ))}
+        <div className="mt-6 space-y-4">
+          {/* Featured — full width */}
+          <Link href={`/projects/${PROJECTS[0].slug}`} className="group block transition hover:-translate-y-0.5">
+            <ProjectVisual
+              title={PROJECTS[0].title}
+              tagline={PROJECTS[0].tagline}
+              thumbnail={PROJECTS[0].thumbnail}
+              icon={PROJECTS[0].visual?.icon ?? "code"}
+              gradientFrom={PROJECTS[0].visual?.gradientFrom}
+              gradientTo={PROJECTS[0].visual?.gradientTo}
+              kpis={PROJECTS[0].visual?.kpis ?? []}
+            />
+          </Link>
+
+          {/* Remaining 2 in grid */}
+          <div className="grid gap-4 md:grid-cols-2">
+            {featured.slice(1).map((slug) => (
+              <ProjectCard key={slug} slug={slug} />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -289,14 +328,14 @@ export default function HomePage() {
       {/* Volunteer */}
       <section id="volunteer" className="space-y-6">
         <div className="flex items-end justify-between gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-3 py-1 text-xs text-[color:var(--muted)] backdrop-blur">
-              Volunteer
+          <div className="flex items-start gap-4">
+            <span className="font-mono text-xs text-[color:var(--muted)] opacity-50 select-none pt-1">04</span>
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">Volunteer experience</h2>
+              <p className="mt-1 text-sm text-[color:var(--muted)]">
+                Community work and leadership outside of coursework.
+              </p>
             </div>
-            <h2 className="mt-3 text-xl font-semibold tracking-tight">Volunteer experience</h2>
-            <p className="mt-2 text-sm text-[color:var(--muted)]">
-              Community work and leadership outside of coursework.
-            </p>
           </div>
           <Link className="btn w-fit" href="/volunteer">
             View all →
@@ -328,20 +367,23 @@ export default function HomePage() {
           shipped UI.
         </p>
 
-        <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent)_14%,transparent)] text-[color:var(--accent)]">
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
-                <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.6"/>
-                <path d="M12 12v4M10 14h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
-              </svg>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5 md:col-span-2">
+            <div className="flex items-start gap-4">
+              <div className="flex-none inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent)_14%,transparent)] text-[color:var(--accent)]">
+                <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
+                  <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.6"/>
+                  <path d="M12 12v4M10 14h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div className="text-sm font-semibold">Business-driven engineering</div>
+                <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
+                  I translate constraints and goals into designs with clear trade-offs and outcomes.
+                </p>
+              </div>
             </div>
-            <div className="text-sm font-semibold">Business-driven engineering</div>
-            <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
-              I translate constraints and goals into designs with clear trade-offs and
-              outcomes.
-            </p>
           </div>
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
             <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-2)_14%,transparent)] text-[color:var(--accent-2)]">
