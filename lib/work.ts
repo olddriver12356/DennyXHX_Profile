@@ -25,7 +25,7 @@ export const WORK: WorkItem[] = [
     start: "2023 May",
     end: "2023 August",
     summary:
-      "I was an investment analyst intern at ShanDong ZhongCheng Investment Management ltd. from 2023 May to 2023 August. I was able to learn about the Investment Analysis and Portfolio Management.",
+      "Joined ShanDong ZhongCheng Investment Management as an Investment Analyst Intern, conducting financial statement analysis, ROI modeling, and investment research to support portfolio decisions across 5+ corporate projects.",
     responsibilities: [
       "Read financial statements (income statement, balance sheet, cash flow)",
       "Analyze financial data and prepare reports",

@@ -138,7 +138,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
         <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-4 py-2 text-xs text-[color:var(--muted)] backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] px-4 py-2 text-xs text-[color:var(--muted)] backdrop-blur animate-fade-in delay-100">
             <span
               className="h-2 w-2 rounded-full"
               style={{ background: "var(--accent)" }}
@@ -146,22 +146,32 @@ export default function HomePage() {
             Open to internships • Vancouver, BC
           </div>
 
-          <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
+          <h1 className="text-gradient mt-6 text-4xl font-semibold leading-tight tracking-tight sm:text-6xl animate-fade-up delay-200">
             {PROFILE.headline}
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--muted)] sm:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--muted)] sm:text-lg animate-fade-up delay-300">
             {PROFILE.subheadline}
           </p>
 
-          <div className="mt-7 flex flex-wrap gap-2">
+          <div className="mt-7 flex flex-wrap gap-2 animate-fade-up delay-400">
             <Chip>Full-stack engineering</Chip>
             <Chip>Product thinking</Chip>
             <Chip>Backend + data systems</Chip>
             <Chip>Clean UX</Chip>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-[color:var(--muted)] animate-fade-up delay-400">
+            <span>GPA 3.7</span>
+            <span className="opacity-40">·</span>
+            <span>3 Projects</span>
+            <span className="opacity-40">·</span>
+            <span>BCom CS @ UBC</span>
+            <span className="opacity-40">·</span>
+            <span>2028 Grad</span>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-2 animate-fade-up delay-500">
             <ButtonLink href="/projects" variant="primary">
               View projects
             </ButtonLink>
@@ -311,6 +321,13 @@ export default function HomePage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
+            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent)_14%,transparent)] text-[color:var(--accent)]">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M12 12v4M10 14h4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              </svg>
+            </div>
             <div className="text-sm font-semibold">Business-driven engineering</div>
             <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
               I translate constraints and goals into designs with clear trade-offs and
@@ -318,6 +335,13 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
+            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-2)_14%,transparent)] text-[color:var(--accent-2)]">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path d="M4 6c0 1.66 3.58 3 8 3s8-1.34 8-3-3.58-3-8-3-8 1.34-8 3Z" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="currentColor" strokeWidth="1.6"/>
+              </svg>
+            </div>
             <div className="text-sm font-semibold">Backend & data focus</div>
             <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
               Strong schemas, validation, contracts, and performance patterns — not just
@@ -325,6 +349,12 @@ export default function HomePage() {
             </p>
           </div>
           <div className="rounded-2xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-5">
+            <div className="mb-3 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--accent-3)_14%,transparent)] text-[color:var(--accent-3)]">
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+                <path d="M1 4v6h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3.51 15a9 9 0 1 0 .49-4.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/>
+              </svg>
+            </div>
             <div className="text-sm font-semibold">Iterative & analytical</div>
             <p className="mt-2 text-sm leading-relaxed text-[color:var(--muted)]">
               I build in loops: ship, measure, refine — whether it’s APIs or ML

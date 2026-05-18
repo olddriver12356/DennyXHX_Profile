@@ -56,14 +56,16 @@ export function Sidebar({
             <div className="mt-1 text-xs text-[color:var(--muted)]">{PROFILE.role}</div>
           </div>
           <span
-            className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)]"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-xl text-sm font-bold"
             aria-hidden="true"
-            title="Accent drifts automatically"
             style={{
-              boxShadow:
-                "0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent), 0 16px 40px color-mix(in oklab, var(--accent) 14%, transparent)",
+              background: "linear-gradient(135deg, var(--accent), var(--accent-2))",
+              color: "rgba(2, 6, 23, 0.92)",
+              boxShadow: "0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent)",
             }}
-          />
+          >
+            D
+          </span>
         </div>
 
         <div className="my-5 h-px w-full bg-white/5" />
@@ -106,9 +108,6 @@ export function Sidebar({
           })}
         </nav>
 
-        <div className="mt-6 rounded-xl border border-[color:var(--border)] bg-[color:color-mix(in_oklab,var(--surface)_55%,transparent)] p-3 text-xs text-[color:var(--muted)]">
-          Accent color shifts automatically over time.
-        </div>
       </div>
     </div>
   );

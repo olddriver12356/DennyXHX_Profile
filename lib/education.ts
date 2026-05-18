@@ -38,10 +38,9 @@ export const EDUCATION: EducationItem[] = [
     school: "Peking University",
     program: "Exchange Student",
     location: "Beijing, China",
-    start: "2024",
-    end: "2024",
+    start: "Summer 2024",
     summary:
-      "I was an exchange student at Peking University from 2024 to 2024. I took courses in Finance Applications, and I was able to learn about the Financial Estimation and Analysis.",
+      "Completed an exchange term at Peking University, taking coursework in Finance Applications and Financial Estimation and Analysis alongside students from across Asia.",
     Grade: [
       "Grade: A",
     ],

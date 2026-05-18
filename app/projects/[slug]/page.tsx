@@ -24,11 +24,14 @@ export default async function ProjectDetailPage({
 
   return (
     <main className="space-y-10">
-      <header className="flex items-center justify-between">
+      <header className="space-y-4">
         <Link className="btn" href="/projects">
           ← Back
         </Link>
-
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight">{project.title}</h1>
+          <p className="mt-2 text-[color:var(--muted)]">{project.tagline}</p>
+        </div>
       </header>
 
       {/* Visual hero */}
