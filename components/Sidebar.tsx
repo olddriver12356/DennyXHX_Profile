@@ -76,7 +76,7 @@ export function Sidebar({
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[color:var(--accent)] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--accent)]" />
           </span>
-          Open to internships
+          Currently Working
         </div>
 
         <nav className="grid gap-2">
