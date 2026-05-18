@@ -122,7 +122,7 @@ function PhotoCard() {
 
       <div className="relative mt-4 flex flex-wrap gap-2">
         <Chip>Vancouver</Chip>
-        <Chip>Open to internships</Chip>
+        <Chip>Currently Working</Chip>
       </div>
     </div>
   );
@@ -152,7 +152,7 @@ export default function HomePage() {
               className="h-2 w-2 rounded-full"
               style={{ background: "var(--accent)" }}
             />
-            Open to internships • Vancouver, BC
+            Currently Working • Vancouver, BC
           </div>
 
           <h1 className="text-gradient mt-6 text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl animate-fade-up delay-200">
